@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CalmNest - Karaoke Vibes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="journey.html">Journey</a>
+        </div>
+
+    </nav>
+
+
+    <section class="karaoke-page">
+
+        <h1>🎤 Karaoke Vibes</h1>
+
+        <p class="karaoke-intro">
+            Pick a song, have some fun and enjoy your little break.
+        </p>
+
+
+        <div class="song-options">
+
+            <div class="song-card">
+                <div class="song-icon">🎵</div>
+
+                <h2>Calm Vibes</h2>
+
+                <p>
+                    A peaceful choice for a relaxed sing-along.
+                </p>
+
+                <button onclick="selectSong('Calm Vibes')">
+                    Choose Song
+                </button>
+            </div>
+
+
+            <div class="song-card">
+                <div class="song-icon">🌈</div>
+
+                <h2>Happy Vibes</h2>
+
+                <p>
+                    Choose something cheerful and enjoy the moment.
+                </p>
+
+                <button onclick="selectSong('Happy Vibes')">
+                    Choose Song
+                </button>
+            </div>
+
+
+            <div class="song-card">
+                <div class="song-icon">✨</div>
+
+                <h2>Feel Good</h2>
+
+                <p>
+                    Pick a fun song and let your creativity flow.
+                </p>
+
+                <button onclick="selectSong('Feel Good')">
+                    Choose Song
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="karaoke-player">
+
+            <h2 id="selectedSong">
+                🎶 Choose a song to begin
+            </h2>
+
+            <p id="songMessage">
+                Your selected song will appear here.
+            </p>
+
+
+            <div class="karaoke-buttons">
+
+                <button onclick="playSong()">
+                    ▶️ Play
+                </button>
+
+                <button onclick="pauseSong()">
+                    ⏸️ Pause
+                </button>
+
+                <button onclick="singOnline()">
+                    🎤 Sing Online
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        let currentSong = "";
+
+
+        function selectSong(song) {
+
+            currentSong = song;
+
+            document.getElementById("selectedSong").innerHTML =
+                "🎶 " + song;
+
+            document.getElementById("songMessage").innerHTML =
+                "Your song is selected. You can start your karaoke session!";
+
+        }
+
+
+        function playSong() {
+
+            if (currentSong === "") {
+
+                document.getElementById("songMessage").innerHTML =
+                    "🎵 Please choose a song first.";
+
+                return;
+            }
+
+            document.getElementById("songMessage").innerHTML =
+                "▶️ " + currentSong + " is ready to play!";
+
+        }
+
+
+        function pauseSong() {
+
+            document.getElementById("songMessage").innerHTML =
+                "⏸️ Karaoke paused.";
+
+        }
+
+
+        function singOnline() {
+
+            alert(
+                "🎤 Online karaoke will open here once we connect a suitable karaoke service."
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+

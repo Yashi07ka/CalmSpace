@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmNest - Music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="journey.html">Back to CalmSpace</a>
+    </nav>
+
+    <section class="music-space">
+
+        <h1>🎵 Music Space</h1>
+
+        <p class="music-intro">
+            Choose a peaceful sound or create your own calm mix.
+        </p>
+
+        <!-- Music Options -->
+
+        <div class="music-options">
+
+            <div class="music-card">
+                <div class="music-icon">🌿</div>
+                <h2>Nature Sounds</h2>
+                <p>
+                    Enjoy peaceful sounds inspired by nature.
+                </p>
+                <button onclick="selectMusic('Nature Sounds')">
+                    ▶️ Select
+                </button>
+            </div>
+
+
+            <div class="music-card">
+                <div class="music-icon">🌊</div>
+                <h2>Ocean Sounds</h2>
+                <p>
+                    Listen to the gentle rhythm of ocean waves.
+                </p>
+                <button onclick="selectMusic('Ocean Sounds')">
+                    ▶️ Select
+                </button>
+            </div>
+
+
+            <div class="music-card">
+                <div class="music-icon">🌧️</div>
+                <h2>Rain Sounds</h2>
+                <p>
+                    Relax with the peaceful sound of rainfall.
+                </p>
+                <button onclick="selectMusic('Rain Sounds')">
+                    ▶️ Select
+                </button>
+            </div>
+
+
+            <div class="music-card">
+                <div class="music-icon">🎶</div>
+                <h2>Enjoy Songs</h2>
+                <p>
+                    Listen to music you enjoy and create your own calm moment.
+                </p>
+                <button onclick="selectMusic('Enjoy Songs')">
+                    ▶️ Select
+                </button>
+            </div>
+
+            <div class="music-card">
+
+    <div class="music-icon">🎤</div>
+
+    <h2>Karaoke Vibes</h2>
+
+    <p>
+        Pick a song, sing along and enjoy a fun musical break.
+    </p>
+
+    <button onclick="location.href='karaoke.html'">
+        🎤 Start Karaoke
+    </button>
+
+</div>
+
+        </div>
+
+
+        <!-- Selected Music -->
+
+
+  <div class="music-player">
+    <h2 id="selectedMusic">🎧 Your Selection</h2>
+
+    <p id="musicMessage">
+        Choose a sound or song above to begin your calm moment.
+    </p>
+</div>
+
+    </section>
+
+
+    <script>
+
+        function selectMusic(music) {
+
+            document.getElementById("selectedMusic").innerHTML =
+                "🎵 " + music;
+
+            document.getElementById("musicMessage").innerHTML =
+                "✨ " + music +
+                " selected. Audio can be connected later.";
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CalmNest - Thought Garden</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="thought-page">
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="journey.html">Journey</a>
+        </div>
+    </nav>
+
+
+    <section class="thought-garden">
+
+        <h1>📓 My Thought Garden</h1>
+
+        <p class="thought-intro">
+            Write freely, decorate your thoughts and keep your little memories safe. 🌿
+        </p>
+
+
+        <!-- DIARY CARD -->
+
+        <div class="diary-card">
+
+            <h2>🌸 Dear Diary...</h2>
+
+            <p class="diary-date" id="diaryDate"></p>
+
+            <div class="diary-actions">
+    <button type="button" onclick="saveDiaryEntry()">💾 Save Entry</button>
+    <button type="button" onclick="clearDiary()">🧹 Clear</button>
+</div>
+
+<p id="diaryMessage"></p>
+
+<div id="savedEntries"></div>
+            <!-- MOOD -->
+
+            <div class="mood-section">
+
+                <p>How are you feeling today?</p>
+
+                <div class="mood-buttons">
+
+                    <button onclick="selectMood('😊 Happy')">😊</button>
+
+                    <button onclick="selectMood('😐 Okay')">😐</button>
+
+                    <button onclick="selectMood('😞 Low')">😞</button>
+
+                    <button onclick="selectMood('😣 Stressed')">😣</button>
+
+                    <button onclick="selectMood('😴 Tired')">😴</button>
+
+                </div>
+
+                <p id="selectedMood">
+                    No mood selected
+                </p>
+
+            </div>
+
+
+            <!-- DIARY TOOLS -->
+
+            <div class="diary-tools">
+
+                <select id="fontStyle" onchange="changeFont()">
+
+                    <option value="Georgia">🌿 Classic</option>
+
+                    <option value="cursive">✍️ Handwriting</option>
+
+                    <option value="monospace">💻 Typewriter</option>
+
+                    <option value="Arial">✨ Simple</option>
+
+                </select>
+
+
+                <button type="button" onclick="formatText('bold')">
+                    <b>B</b>
+                </button>
+
+
+                <button type="button" onclick="formatText('italic')">
+                    <i>I</i>
+                </button>
+
+
+                <button type="button" onclick="alignText('left')">
+                    ⬅️
+                </button>
+
+
+                <button type="button" onclick="alignText('center')">
+                    ↔️
+                </button>
+
+            </div>
+
+
+            <!-- WRITING AREA -->
+
+            <div
+                id="diaryInput"
+                class="diary-editor"
+                contenteditable="true">
+            </div>
+
+
+            <!-- STICKERS -->
+
+            <div class="sticker-section">
+
+                <p>✨ Add a sticker</p>
+
+                <button type="button" onclick="addSticker('🌸')">🌸</button>
+
+                <button type="button" onclick="addSticker('🌿')">🌿</button>
+
+                <button type="button" onclick="addSticker('🦋')">🦋</button>
+
+                <button type="button" onclick="addSticker('🌈')">🌈</button>
+
+                <button type="button" onclick="addSticker('☁️')">☁️</button>
+
+                <button type="button" onclick="addSticker('⭐')">⭐</button>
+
+                <button type="button" onclick="addSticker('🌙')">🌙</button>
+
+                <button type="button" onclick="addSticker('💚')">💚</button>
+
+            </div>
+
+
+            <div id="stickerDisplay"></d>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        
+
+        let selectedMood = "";
+
+        let selectedStickers = [];
+      
+        let today = new Date();
+
+        document.getElementById("diaryDate").innerHTML =
+            today.toLocaleDateString("en-IN", {
+
+                day: "numeric",
+
+                month: "long",
+
+                year: "numeric"
+
+            });
+
+
+        function selectMood(mood) {
+
+            selectedMood = mood;
+
+            document.getElementById("selectedMood").innerHTML =
+                "Today's mood: " + mood;
+
+        }
+
+        function changeFont() {
+
+            let font =
+                document.getElementById("fontStyle").value;
+
+            document.getElementById("diaryInput").focus();
+
+            document.execCommand(
+                "fontName",
+                false,
+                font
+            );
+
+        }
+
+        function formatText(command) {
+
+            document.getElementById("diaryInput").focus();
+
+            document.execCommand(
+                command,
+                false,
+                null
+            );
+
+        }
+     
+        function alignText(position) {
+
+            document.getElementById("diaryInput").focus();
+
+            document.execCommand(
+                "justify" +
+                position.charAt(0).toUpperCase() +
+                position.slice(1),
+                false,
+                null
+            );
+
+        }
+    
+        function addSticker(sticker) {
+
+            document.getElementById("diaryInput").focus();
+
+            document.execCommand(
+                "insertText",
+                false,
+                sticker
+            );
+
+            selectedStickers.push(sticker);
+
+        }
+ 
+function saveDiaryEntry() {
+
+    let diaryInput =
+        document.getElementById("diaryInput");
+
+    let diaryText =
+        diaryInput.innerHTML.trim();
+
+    let message =
+        document.getElementById("diaryMessage");
+
+    if (diaryInput.innerText.trim() === "") {
+
+        message.innerHTML =
+            "📒 Write something in your diary first.";
+
+        return;
+    }
+
+    let entry = {
+
+        date: new Date().toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        ),
+
+        mood: selectedMood || "No mood selected",
+
+        content: diaryText
+    };
+
+    fetch("/api/diary", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(entry)
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.error) {
+
+            message.innerHTML =
+                "❌ " + data.error;
+
+            return;
+        }
+
+        message.innerHTML =
+            "🌱 Your diary entry has been saved!";
+
+        diaryInput.innerHTML = "";
+
+        loadDiaryEntries();
+
+    })
+
+    .catch(error => {
+
+        message.innerHTML =
+            "❌ Database connection error";
+
+        console.log(error);
+
+    });
+}
+
+function loadDiaryEntries() {
+
+    fetch("/api/diary")
+
+        .then(response => response.json())
+
+        .then(entries => {
+
+            let container =
+                document.getElementById("savedEntries");
+
+            container.innerHTML = "";
+
+            entries.forEach(function(entry) {
+
+                container.innerHTML += `
+
+                <div class="saved-entry">
+
+                    <h3>📒 ${entry.date}</h3>
+
+                    <p>🌿 ${entry.mood}</p>
+
+                    <div class="saved-content">
+                        ${entry.content}
+                    </div>
+
+                    <button onclick="plantDiaryEntry(${entry.id})">
+                        🌱 Plant in CalmNest Garden
+                    </button>
+
+                    <button onclick="deleteEntry(${entry.id})">
+                        🗑️ Delete
+                    </button>
+
+                </div>
+
+                `;
+            });
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+        });
+}
+
+function plantDiaryEntry(entryId) {
+
+    fetch("/api/diary")
+
+        .then(response => response.json())
+
+        .then(entries => {
+
+            let entry = entries.find(
+                function(item) {
+                    return item.id === entryId;
+                }
+            );
+
+            if (!entry) {
+                return;
+            }
+
+            let problemText =
+                entry.content
+                    .replace(/<[^>]*>/g, "")
+                    .trim();
+
+            if (problemText === "") {
+                return;
+            }
+
+            fetch("/api/garden", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    problem: problemText,
+                    created_at: new Date().toLocaleString("en-IN")
+                })
+
+            })
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                if (data.error) {
+
+                    document.getElementById("diaryMessage").innerHTML =
+                        "❌ " + data.error;
+
+                    return;
+                }
+
+                document.getElementById("diaryMessage").innerHTML =
+                    "🌱 Your thought has been planted in CalmNest Garden!";
+
+            })
+
+            .catch(error => {
+
+                console.log(error);
+
+                document.getElementById("diaryMessage").innerHTML =
+                    "❌ Could not plant the thought.";
+
+            });
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+        });
+}
+
+function deleteEntry(id) {
+
+    fetch(`/api/diary/${id}`, {
+        method: "DELETE"
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.error) {
+            return;
+        }
+
+        loadDiaryEntries();
+
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+    });
+}
+
+loadDiaryEntries();
+
+    </script>
+
+</body>
+
+</html>

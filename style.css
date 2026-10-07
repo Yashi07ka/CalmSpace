@@ -1,0 +1,1267 @@
+body {
+    background: linear-gradient(135deg, #D6F0FF, #FFF9C4);
+    text-align:center;
+    font-family:Arial, sans-serif;
+    padding-top: 50px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+h1{
+    color:#164E63 ;
+    font-size: 45px
+}
+button{
+    background-color:#164E63 ;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius:25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.calm-corner {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.calm-corner h2 {
+    margin-bottom: 8px;
+}
+
+.calm-corner > p {
+    margin-bottom: 25px;
+}
+
+.corner-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.corner-card {
+    width: 280px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.corner-card h2 {
+    margin: 12px 0;
+}
+
+.corner-card p {
+    line-height: 1.6;
+}
+
+.corner-card button {
+    margin-top: 12px;
+}
+
+.journey-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+    justify-content: center;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.journey-card {
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+}
+
+.journey-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.journey-card h2 {
+    margin: 10px 0;
+}
+
+.journey-card p {
+    line-height: 1.6;
+}
+
+.journey-card button {
+    margin-top: 12px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-bottom: 50px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1E3A5F;
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 25px;
+}
+
+nav a:hover {
+    color: #2e7d32;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1E3A5F;
+    line-height: 1;
+}
+
+.start-button {
+    display: inline-block;
+    background-color: #6B9CC5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nature-page {
+    text-align: center;
+    padding: 50px 8%;
+}
+
+.nature-page h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.nature-intro {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.nature-options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 850px;
+    margin: 0 auto 60px  ;
+}
+
+.nature-card{
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nature-card:hover {
+    transform: translateY(-6px);
+}
+
+.nature-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.nature-card h2{
+    margin-bottom: 10px;
+
+}
+
+.nature-card p{
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.nature-card button{
+    border: none;
+    background: #6aa68a;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.nature-card button:hover {
+    background: #4f896e;
+}
+
+.selected-scene {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.selected-scene h2 {
+    color: #1E3A5F;
+    margin-bottom: 12px;
+}
+
+.selected-scene p {
+    line-height: 1.6;
+}
+
+.sound-mixer {
+    max-width: 700px;
+    margin: 25px auto 30px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.selected-scene {
+    width: 85%;
+    max-width: 850px;
+    min-height: 280px;
+    margin: 40px auto;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #dff3e3,
+        #dceeff
+    );
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+    transition: 0.6s ease;
+}
+
+
+.preview-content {
+    padding: 35px 20px;
+}
+
+
+.preview-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+
+.selected-scene h2 {
+    margin: 10px 0;
+    font-size: 28px;
+}
+
+
+.selected-scene p {
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+
+
+.scene-details {
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+.weather-effect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.selected-scene {
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Rain */
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: rgba(80, 120, 160, 0.45);
+    animation: rainFall 1s linear infinite;
+}
+
+@keyframes rainFall {
+
+    from {
+        transform: translateY(-30px);
+    }
+
+    to {
+        transform: translateY(320px);
+    }
+
+}
+
+
+/* Stars */
+
+.star {
+    position: absolute;
+    font-size: 18px;
+    animation: twinkle 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+.selected-scene button {
+    margin-top: 15px;
+}
+
+.scene-customizer button.selected {
+    background: #164E63;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sound-mixer h2 {
+    color: #1E3A5F;
+    margin-bottom: 25px;
+}
+
+.sound-control {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.sound-control label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.sound-control input {
+    width: 100%;
+    cursor: pointer;
+}
+
+.music-page {
+    text-align: center;
+    padding: 50px 8%;
+}
+
+.music-page h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.music-intro {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.music-options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.music-card{
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.music-card:hover {
+    transform: translateY(-6px);
+}
+
+.music-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.music-card h2{
+    margin-bottom: 10px;
+}
+
+.music-card p{
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.music-card button{
+    border: none;
+    background: #6aa68a;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.music-card button:hover {
+    background: #4f896e;
+}
+
+.music-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.music-player {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.player-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.music-player h2 {
+    margin-bottom: 10px;
+}
+
+.music-player p {
+    margin: 0;
+    color: #555;
+}
+
+
+       
+
+.timer-box{
+    margin: 40px auto;
+    padding: 35px;
+    width: 320px;
+    background-color: #EAF3F7;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.timer-box h2{
+    font-size: 50px;
+    color: #4F7FA3;
+    margin-bottom: 25px;
+}
+
+.timer-box button{
+    border: none;
+    background-color: #6B9CC5;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.timer-box button:hover{
+    opacity: 0.85;
+}
+
+
+.suggestion-box {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.suggestion-box h2 {
+    color: #1E3A5F;
+    margin-bottom: 12px;
+}
+
+.suggestion-box p {
+    line-height: 1.6;
+}
+
+.suggestion-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 18px;
+    background: #1E3A5F;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.suggestion-box button:hover {
+    transform: translateY(-2px);
+}
+
+.thought-garden{
+    width: 90%;
+    max-width: 950px;
+    margin:45px auto;
+    text-align: center;
+}
+
+.thought-garden h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.thought-intro {
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+.diary-card {
+    background: #fffaf0;
+    max-width: 780px;
+    margin: 0 auto;
+    padding:  35px 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    text-align: left;
+    border: 1px solid #f0e7d5;
+}
+
+.diary-card h2{
+    text-align: center;
+    margin: 0 0 6px;
+    font-size: 28px;
+}
+
+.diary-date {
+    text-align: center;
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.mood-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.mood-section p {
+    margin: 8px 0;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.mood-buttons button {
+   border: 1px solid #e5e5e5;
+    background: #ffffff;
+    color: #333;
+    font-size: 24px;
+    width: 52px;
+    height: 48px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#selectedMood {
+    font-size: 14px;
+    color: #5f7f68;
+    margin-top: 8px;
+}
+
+.diary-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding: 10px 12px;
+    background: #f4eee1;
+    border: 1px solid #e4dbc9;
+    border-radius: 14px 14px 0 0;
+}
+
+.diary-tools select {
+    padding: 8px 11px;
+    border: 1px solid #c8d8cc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.diary-tools button{
+    min-width: 40px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: #e1eee4;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    color: #263238;
+    font-weight: 600;
+}
+
+.diary-tools button:hover{
+    transform: translateY(-2px);
+    background: #cfe3d3;
+}
+
+.diary-editor {
+    min-height: 230px;
+    padding: 20px;
+    border: 2px solid #d8d0c1;
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    background: #fffefb;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    outline: none;
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.diary-editor:empty::before {
+    content: "Write whatever is on your mind... This is your safe littlr space.🌱";
+    color: #aaa;
+    pointer-events: none;
+}
+
+.diary-editor:focus {
+    border-color: #9ab59f;
+}
+
+.sticker-section {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.sticker-section p {
+    margin-bottom: 10px;
+}
+
+.sticker-section button {
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    color: #333;
+    font-size: 23px;
+    width: 48px;
+    height: 46px;
+    padding: 0;
+    margin: 4px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticker-section button:hover {
+    transform: translateY(-3px);
+    background: #f8f8f8;
+}
+
+#stikerDisplay {
+    min-height: 10px;
+}
+
+.diary-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.diary-actions button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 11px;
+    background: #6b8f71;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    font-weight: 600;
+}
+
+.diary-actions button:hover {
+    transform: translateY(-2px);
+    background: #55785c;
+}
+
+#diaryMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 15px;
+    color: #5f7f68;
+}
+
+@media (max-width: 600px) {
+
+    .thought-garden {
+        width: 94%;
+        margin-top: 30px;
+    }
+
+    .thought-garden h1 {
+        font-size: 30px;
+    }
+
+    .thought-intro {
+        font-size: 16px;
+    }
+
+    .diary-card {
+        padding: 22px 18px;
+    }
+
+    .diary-card h2 {
+        font-size: 25px;
+    }
+
+    .diary-editor {
+        min-height: 220px;
+        font-size: 17px;
+    }
+
+    .diary-tools {
+        justify-content: flex-start;
+    }
+
+    .mood-buttons {
+        gap: 8px;
+    }
+}
+
+#savedEntries {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.saved-entry {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    border: 1px solid #e1e8e2;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.saved-entry h3 {
+    margin-top: 0;
+    color: #55785c;
+}
+
+.saved-content {
+    margin: 15px 0;
+    padding: 12px;
+    background: #fffaf0;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+.saved-entry button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: #d98b8b;
+    color: white;
+    cursor: pointer;
+}
+
+body.thought-page {
+    margin: 0;
+    background: #fffaf0;
+}
+
+.thought-page .thought-garden{
+      margin-top: 30px;
+      margin-bottom: 30px;
+}
+
+body.garden-page {
+    margin: 0;
+    background: #f7fbf5;
+}
+
+
+.calm-garden {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+
+.calm-garden h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+
+.garden-intro {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+
+.garden-card {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    background: #fffaf0;
+    border-radius: 22px;
+    border: 1px solid #e5dfd0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.garden-card h2 {
+    margin-top: 0;
+}
+
+
+#problemInput {
+    width: 80%;
+    max-width: 500px;
+    padding: 13px 15px;
+    margin: 15px 0;
+    border: 1px solid #ccd9ce;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+
+#problemInput:focus {
+    border-color: #8aaa91;
+}
+
+
+.garden-card button,
+.plant-card button {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    background: #6b8f71;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.garden-card button:hover,
+.plant-card button:hover {
+    background: #55785c;
+    transform: translateY(-2px);
+}
+
+
+#gardenMessage {
+    color: #5f7f68;
+    min-height: 20px;
+}
+
+
+.my-plants-title {
+    margin-bottom: 20px;
+}
+
+
+#plantContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+
+.plant-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #e0e8df;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+}
+
+
+.plant-emoji {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+
+.plant-card h3 {
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+
+.plant-date {
+    color: #888;
+    font-size: 14px;
+}
+
+
+.plant-stage {
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+
+.growth-bar {
+    height: 10px;
+    background: #e8eee8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0 20px;
+}
+
+
+.growth-progress {
+    height: 100%;
+    background: #8aaa91;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+
+.bloom-message {
+    color: #6b8f71;
+    font-weight: 600;
+}
+
+
+.delete-plant {
+    display: block;
+    margin: 12px auto 0;
+    background: #d98b8b !important;
+}
+
+
+.delete-plant:hover {
+    background: #c87575 !important;
+}
+
+
+.empty-garden {
+    background: #fffaf0;
+    padding: 30px;
+    border-radius: 18px;
+    color: #777;
+}
+
+
+@media (max-width: 700px) {
+
+    #plantContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .calm-garden h1 {
+        font-size: 30px;
+    }
+
+    .garden-card {
+        padding: 22px;
+    }
+
+    #problemInput {
+        width: 90%;
+    }
+
+}
+
+.daily-spark {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.spark-intro {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.spark-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.spark-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.spark-card h2 {
+    color: #1E3A5F;
+    margin-bottom: 15px;
+}
+
+.spark-card p {
+    line-height: 1.6;
+}
+
+.spark-card button {
+    margin: 10px 5px 0;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 22px;
+    background: #1E3A5F;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.spark-card button:hover {
+    transform: translateY(-3px);
+}
+
+#sparkMessage {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.karaoke-page {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.karaoke-page h1 {
+    font-size: 40px;
+    color: #183b56;
+    margin-bottom: 15px;
+}
+
+.karaoke-intro {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.song-options {
+    max-width: 950px;
+    margin: 0 auto 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.song-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.song-icon {
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+
+.song-card h2 {
+    color: #183b56;
+    margin-bottom: 12px;
+}
+
+.song-card p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.song-card button,
+.karaoke-buttons button {
+    background: #183b56;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    margin: 5px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.song-card button:hover,
+.karaoke-buttons button:hover {
+    transform: translateY(-3px);
+}
+
+.karaoke-player {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.karaoke-player h2 {
+    color: #183b56;
+    margin-bottom: 12px;
+}
+
+.karaoke-player p {
+    line-height: 1.6;
+}
+
+.karaoke-buttons {
+    margin-top: 20px;
+}
+
+@media (max-width: 750px) {
+    .song-options {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+/* Home Page */
+
+.home-content {
+    min-height: 75vh;
+    padding: 80px 12%;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content h1 {
+    font-size: 76px;
+    margin: 0 0 20px;
+    color: #164E63;
+}
+
+.home-content p {
+    font-size: 25px;
+    margin: 0 0 30px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.home-content .start-button {
+    width: fit-content;
+    padding: 15px 30px;
+    font-size: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-content .start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.corner-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.corner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Nature Page Spacing */
+
+.nature-space {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.scene-customizer {
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+.scene-customizer h2 {
+    margin-top: 28px;
+    margin-bottom: 15px;
+}
+
+.scene-customizer button {
+    margin: 5px;
+}
+
+.selected-scene {
+    margin-top: 45px;
+    padding: 40px 30px;
+}
+
+.selected-scene h2 {
+    margin: 15px 0;
+}
+
+.selected-scene p {
+    margin: 12px 0;
+}

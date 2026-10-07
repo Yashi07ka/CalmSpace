@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CalmNest - My Garden</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="garden-page">
+
+    <nav class="navbar">
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="journey.html">Journey</a>
+        </div>
+
+    </nav>
+
+
+    <section class="calm-garden">
+
+        <h1>🌱 My CalmNest Garden</h1>
+
+        <p class="garden-intro">
+            Every problem is a little seed. Give it time, care and patience,
+            and watch your progress grow. 🌿
+        </p>
+
+
+        <!-- ADD NEW PROBLEM -->
+
+        <div class="garden-card">
+
+            <h2>🌱 Plant a New Problem</h2>
+
+            <p>
+                Write one thing you are currently dealing with.
+            </p>
+
+            <input
+                type="text"
+                id="problemInput"
+                placeholder="Example: Exam stress"
+            >
+
+            <button onclick="plantProblem()">
+                🌱 Plant Seed
+            </button>
+
+            <p id="gardenMessage"></p>
+
+        </div>
+
+
+        <!-- PLANTS -->
+
+        <h2 class="my-plants-title">
+            🌿 My Growing Plants
+        </h2>
+
+        <div id="plantContainer"></div>
+
+    </section>
+
+
+    <script>
+
+        function getPlants() {
+
+            return JSON.parse(
+                localStorage.getItem("calmNestPlants")
+            ) || [];
+
+        }
+
+
+        function savePlants(plants) {
+
+            localStorage.setItem(
+                "calmNestPlants",
+                JSON.stringify(plants)
+            );
+
+        }
+
+
+        function plantProblem() {
+
+            let input =
+                document.getElementById("problemInput");
+
+            let problem =
+                input.value.trim();
+
+            let message =
+                document.getElementById("gardenMessage");
+
+
+            if (problem === "") {
+
+                message.innerHTML =
+                    "🌱 Please write a problem first.";
+
+                return;
+            }
+
+
+            let plants = getPlants();
+
+
+            let newPlant = {
+
+                id: Date.now(),
+
+                problem: problem,
+
+                growth: 0,
+
+                date: new Date().toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                    }
+                )
+
+            };
+        
+fetch("/api/garden", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        problem: problem,
+        created_at: new Date().toLocaleString("en-IN")
+    })
+})
+.then(response => response.json())
+.then(data => {
+
+    if (data.error) {
+        message.innerHTML = "❌ " + data.error;
+        return;
+    }
+
+    input.value = "";
+
+    message.innerHTML =
+        "🌱 Your problem has been planted!";
+
+    displayPlants();
+})
+.catch(error => {
+    message.innerHTML = "❌ Database connection error";
+    console.log(error);
+});
+}
+
+
+
+
+        function getPlantStage(growth) {
+
+            if (growth === 0) {
+                return {
+                    emoji: "🌱",
+                    name: "Seed"
+                };
+            }
+
+            if (growth === 1) {
+                return {
+                    emoji: "🌿",
+                    name: "Sprout"
+                };
+            }
+
+            if (growth === 2) {
+                return {
+                    emoji: "🌳",
+                    name: "Growing Tree"
+                };
+            }
+
+            return {
+                emoji: "🌸",
+                name: "Blooming"
+            };
+
+        }
+
+
+        
+function growPlant(id) {
+
+    fetch(`/api/garden/${id}/grow`, {
+        method: "PUT"
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.error) {
+            return;
+        }
+
+        displayPlants();
+    })
+
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+
+function deletePlant(id) {
+
+    fetch(`/api/garden/${id}`, {
+        method: "DELETE"
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.error) {
+            return;
+        }
+
+        displayPlants();
+
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+    });
+}
+
+function displayPlants() {
+
+    fetch("/api/garden")
+
+        .then(response => response.json())
+
+        .then(plants => {
+
+            let container =
+                document.getElementById("plantContainer");
+
+            container.innerHTML = "";
+
+            if (plants.length === 0) {
+
+                container.innerHTML = `
+                    <div class="empty-garden">
+                        🌱 Your garden is waiting for its first seed.
+                    </div>
+                `;
+
+                return;
+            }
+
+            plants.forEach(function(plant) {
+
+                let stage =
+                    getPlantStage(plant.growth);
+
+                let growButton = "";
+
+                if (plant.growth < 3) {
+
+                    growButton = `
+                        <button
+                            onclick="growPlant(${plant.id})">
+                            🌿 Grow My Plant
+                        </button>
+                    `;
+
+                } else {
+
+                    growButton = `
+                        <p class="bloom-message">
+                            🌸 This plant has bloomed!
+                        </p>
+                    `;
+                }
+
+                container.innerHTML += `
+                    <div class="plant-card">
+
+                        <div class="plant-emoji">
+                            ${stage.emoji}
+                        </div>
+
+                        <h3>
+                            ${plant.problem}
+                        </h3>
+
+                        <p class="plant-date">
+                            Planted on ${plant.created_at}
+                        </p>
+
+                        <p class="plant-stage">
+                            Stage: ${stage.name}
+                        </p>
+
+                        <div class="growth-bar">
+
+                            <div
+                                class="growth-progress"
+                                style="width: ${((plant.growth + 1) / 4) * 100}%">
+                            </div>
+
+                        </div>
+
+                        ${growButton}
+
+                        <button
+                            class="delete-plant"
+                            onclick="deletePlant(${plant.id})">
+                            🗑️ Remove Plant
+                        </button>
+
+                    </div>
+                `;
+            });
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+        });
+}
+
+displayPlants();
+
+    </script>
+
+</body>
+
+</html>

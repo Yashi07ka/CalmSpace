@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CalmNest - Nature</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="journey.html">Journey</a>
+
+
+        </div>
+
+    </nav>
+
+
+    <!-- Nature Space -->
+    <section class="nature-space">
+
+        <h1>🌿 Nature Space</h1>
+
+        <p class="nature-intro">
+            Choose a peaceful scene and create your own calming space.
+        </p>
+
+
+        <!-- Nature Options -->
+        <div class="nature-options">
+
+
+            <!-- Forest -->
+            <div class="nature-card">
+
+                <div class="nature-icon">🌲</div>
+
+                <h2>Forest</h2>
+
+                <p>
+                    Feel surrounded by peaceful greenery and quiet forest vibes.
+                </p>
+
+                <button onclick="selectScene('forest')">
+                    Explore
+                </button>
+
+            </div>
+
+
+            <!-- Ocean -->
+            <div class="nature-card">
+
+                <div class="nature-icon">🌊</div>
+
+                <h2>Ocean</h2>
+
+                <p>
+                    Imagine the gentle rhythm of waves and let your mind slow down.
+                </p>
+
+                <button onclick="selectScene('ocean')">
+                    Explore
+                </button>
+
+            </div>
+
+
+            <!-- Rain -->
+            <div class="nature-card">
+
+                <div class="nature-icon">🌧️</div>
+
+                <h2>Rain</h2>
+
+                <p>
+                    Enjoy the peaceful atmosphere of a soft rainy day.
+                </p>
+
+                <button onclick="selectScene('rain')">
+                    Explore
+                </button>
+
+            </div>
+
+
+            <!-- Sunrise -->
+            <div class="nature-card">
+
+                <div class="nature-icon">🌅</div>
+
+                <h2>Sunrise</h2>
+
+                <p>
+                    Take a quiet moment and imagine watching a beautiful sunrise.
+                </p>
+
+                <button onclick="selectScene('sunrise')">
+                    Explore
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Customize Your Calm Scene -->
+        <div class="scene-customizer">
+
+            <h2>✨ Customize Your Calm Scene</h2>
+
+            <p>
+                Choose what feels peaceful to you.
+            </p>
+
+
+            <!-- Environment -->
+           <div class="custom-option">
+
+    <h3>🌿 Choose Environment</h3>
+
+    <button class="environment-btn"
+            onclick="chooseEnvironment('forest')">
+        🌲 Forest
+    </button>
+
+    <button class="environment-btn"
+            onclick="chooseEnvironment('ocean')">
+        🌊 Ocean
+    </button>
+
+    <button class="environment-btn"
+            onclick="chooseEnvironment('rain')">
+        🌧️ Rain
+    </button>
+
+    <button class="environment-btn"
+            onclick="chooseEnvironment('sunrise')">
+        🌅 Sunrise
+    </button>
+
+</div>
+
+
+            <!-- Time -->
+           <div class="custom-option">
+
+    <h3>🕐 Choose Time</h3>
+
+    <button class="time-btn"
+            onclick="chooseTime('morning')">
+        🌅 Morning
+    </button>
+
+    <button class="time-btn"
+            onclick="chooseTime('evening')">
+        🌇 Evening
+    </button>
+
+    <button class="time-btn"
+            onclick="chooseTime('night')">
+        🌙 Night
+    </button>
+
+</div>
+
+            <!-- Weather -->
+           <div class="custom-option">
+
+    <h3>☁️ Choose Weather</h3>
+
+    <button class="weather-btn"
+            onclick="chooseWeather('clear')">
+        ☀️ Clear
+    </button>
+
+    <button class="weather-btn"
+            onclick="chooseWeather('cloudy')">
+        ☁️ Cloudy
+    </button>
+
+    <button class="weather-btn"
+            onclick="chooseWeather('rainy')">
+        🌧️ Rainy
+    </button>
+
+    <button class="weather-btn"
+            onclick="chooseWeather('starry')">
+        ✨ Starry
+    </button>
+
+</div>
+
+
+            <!-- Create Scene -->
+            <button
+                class="create-scene-btn"
+                onclick="createCalmScene()">
+
+                ✨ Create My Calm Scene
+
+            </button>
+
+
+            <p id="customSceneMessage"></p>
+
+        </div>
+
+
+       <!-- Calm Scene Preview -->
+<div class="selected-scene" id="calmPreview">
+
+    <div class="preview-content">
+
+        <div class="preview-icon" id="previewIcon">
+            🌿
+        </div>
+
+        <h2 id="sceneTitle">
+            ✨ Your Calm Scene
+        </h2>
+
+        <p id="sceneMessage">
+            Choose your environment, time and weather to create your scene.
+        </p>
+
+        <p class="scene-details" id="sceneDetails">
+            Nothing selected yet
+        </p>
+
+        <button onclick="changeScene()">
+            🔄 Change Scene
+        </button>
+
+    </div>
+
+</div>
+
+
+        <!-- Sound Mixer -->
+        <div class="sound-mixer">
+
+            <h2>🎧 Create Your Sound Mix</h2>
+
+
+            <!-- Music -->
+            <div class="sound-control">
+
+                <label>
+
+                    🎵 Music
+
+                    <span id="musicValue">60%</span>
+
+                </label>
+
+                <input
+                    type="range"
+                    id="musicSlider"
+                    min="0"
+                    max="100"
+                    value="60"
+                    oninput="updateVolume('music')"
+                >
+
+            </div>
+
+
+            <!-- Rain -->
+            <div class="sound-control">
+
+                <label>
+
+                    🌧️ Rain
+
+                    <span id="rainValue">30%</span>
+
+                </label>
+
+                <input
+                    type="range"
+                    id="rainSlider"
+                    min="0"
+                    max="100"
+                    value="30"
+                    oninput="updateVolume('rain')"
+                >
+
+            </div>
+
+
+            <!-- Nature -->
+            <div class="sound-control">
+
+                <label>
+
+                    🌿 Nature
+
+                    <span id="natureValue">10%</span>
+
+                </label>
+
+                <input
+                    type="range"
+                    id="natureSlider"
+                    min="0"
+                    max="100"
+                    value="10"
+                    oninput="updateVolume('nature')"
+                >
+
+            </div>
+
+
+            <button onclick="playMix()">
+                ▶️ Play Calm Mix
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        /* -----------------------------
+           NATURE SCENES
+        ----------------------------- */
+
+        let scenes = {
+
+            forest: {
+                title: "🌲 Peaceful Forest",
+                message: "Take a slow breath and imagine yourself surrounded by peaceful trees."
+            },
+
+            ocean: {
+                title: "🌊 Gentle Ocean",
+                message: "Imagine the rhythm of gentle waves and allow your mind to slow down."
+            },
+
+            rain: {
+                title: "🌧️ Soft Rain",
+                message: "Take a quiet moment and imagine listening to soft rainfall."
+            },
+
+            sunrise: {
+                title: "🌅 Calm Sunrise",
+                message: "Take a deep breath and imagine a peaceful sunrise beginning your day."
+            }
+
+        };
+
+
+        let currentScene = "";
+
+
+        /* Select Nature Scene */
+
+        function selectScene(scene) {
+
+            currentScene = scene;
+
+            document.getElementById("sceneTitle").innerHTML =
+                scenes[scene].title;
+
+            document.getElementById("sceneMessage").innerHTML =
+                scenes[scene].message;
+
+        }
+
+
+        /* Change Scene */
+
+        function changeScene() {
+
+            let sceneNames = Object.keys(scenes);
+
+            let randomScene =
+                sceneNames[
+                    Math.floor(
+                        Math.random() * sceneNames.length
+                    )
+                ];
+
+            selectScene(randomScene);
+
+        }
+
+
+
+        /* -----------------------------
+           CUSTOM SCENE
+        ----------------------------- */
+
+        let selectedEnvironment = "";
+
+        let selectedTime = "";
+
+        let selectedWeather = "";
+
+
+        /* Choose Environment */
+
+       function chooseEnvironment(environment) {
+    selectedEnvironment = environment;
+
+    document.querySelectorAll(".custom-option:nth-child(1) button")
+        .forEach(button => button.classList.remove("selected"));
+
+    event.target.classList.add("selected");
+}
+
+
+        /* Choose Time */
+
+       function chooseTime(time) {
+    selectedTime = time;
+
+    document.querySelectorAll(".custom-option:nth-child(2) button")
+        .forEach(button => button.classList.remove("selected"));
+
+    event.target.classList.add("selected");
+}
+
+
+        /* Choose Weather */
+
+        function chooseWeather(weather) {
+    selectedWeather = weather;
+
+    document.querySelectorAll(".custom-option:nth-child(3) button")
+        .forEach(button => button.classList.remove("selected"));
+
+    event.target.classList.add("selected");
+}
+
+     function createCalmScene() {
+
+    if (
+        selectedEnvironment === "" ||
+        selectedTime === "" ||
+        selectedWeather === ""
+    ) {
+
+        document.getElementById("customSceneMessage").innerHTML =
+            "🌿 Please choose an environment, time and weather first.";
+
+        return;
+    }
+
+
+    let environmentText = "";
+    let environmentIcon = "";
+
+
+    if (selectedEnvironment === "forest") {
+
+        environmentText = "Forest";
+        environmentIcon = "🌲";
+
+    }
+
+    else if (selectedEnvironment === "ocean") {
+
+        environmentText = "Ocean";
+        environmentIcon = "🌊";
+
+    }
+
+    else if (selectedEnvironment === "rain") {
+
+        environmentText = "Rain";
+        environmentIcon = "🌧️";
+
+    }
+
+    else if (selectedEnvironment === "sunrise") {
+
+        environmentText = "Sunrise";
+        environmentIcon = "🌅";
+
+    }
+
+
+    let timeText = "";
+
+    if (selectedTime === "morning") {
+        timeText = "Morning";
+    }
+
+    else if (selectedTime === "evening") {
+        timeText = "Evening";
+    }
+
+    else if (selectedTime === "night") {
+        timeText = "Night";
+    }
+
+
+    let weatherText = "";
+
+    if (selectedWeather === "clear") {
+        weatherText = "Clear";
+    }
+
+    else if (selectedWeather === "cloudy") {
+        weatherText = "Cloudy";
+    }
+
+    else if (selectedWeather === "rainy") {
+        weatherText = "Rainy";
+    }
+
+    else if (selectedWeather === "starry") {
+        weatherText = "Starry";
+    }
+
+        /* Change the visual atmosphere */
+
+    let preview = document.getElementById("calmPreview");
+
+    if (selectedEnvironment === "forest") {
+
+        preview.style.background =
+            "linear-gradient(135deg, #dff3e3, #b8dfc0)";
+
+    }
+
+    else if (selectedEnvironment === "ocean") {
+
+        preview.style.background =
+            "linear-gradient(135deg, #dceeff, #9ed8ed)";
+
+    }
+
+    else if (selectedEnvironment === "rain") {
+
+        preview.style.background =
+            "linear-gradient(135deg, #d9e2ea, #aebdca)";
+
+    }
+
+    else if (selectedEnvironment === "sunrise") {
+
+        preview.style.background =
+            "linear-gradient(135deg, #ffe5c4, #ffd1a9)";
+
+    }
+
+    document.getElementById("sceneTitle").innerHTML =
+    "✨ Your " + environmentText + " Escape";
+
+        /* Change atmosphere according to time */
+
+    if (selectedTime === "night") {
+
+        preview.style.filter = "brightness(0.75)";
+
+    }
+
+    else if (selectedTime === "evening") {
+
+        preview.style.filter = "brightness(0.9)";
+
+    }
+
+    else {
+
+        preview.style.filter = "brightness(1)";
+
+    }
+
+
+    /* Change preview icon */
+
+    document.getElementById("previewIcon").innerHTML =
+        environmentIcon;
+
+
+    /* Change title */
+
+    document.getElementById("sceneTitle").innerHTML =
+        "✨ Your " + environmentText + " Escape";
+
+
+    /* Change message */
+
+    document.getElementById("sceneMessage").innerHTML =
+        "Your personalized calm scene is ready. Take a moment and enjoy your little escape.";
+
+
+    /* Show selected options */
+
+    document.getElementById("sceneDetails").innerHTML =
+        environmentIcon + " " + environmentText +
+        " &nbsp; • &nbsp; " +
+        "🕐 " + timeText +
+        " &nbsp; • &nbsp; " +
+        "☁️ " + weatherText;
+
+
+    /* Confirmation message */
+
+    document.getElementById("customSceneMessage").innerHTML =
+        "💚 Your calm scene has been created!";
+
+}
+
+document.getElementById("customSceneMessage").innerHTML =
+    "💚 Your calm scene has been created!";
+
+    /* Remove old weather effect */
+
+let oldEffect = document.querySelector(".weather-effect");
+
+if (oldEffect) {
+    oldEffect.remove();
+}
+
+
+/* Create new weather effect */
+
+let effect = document.createElement("div");
+
+effect.className = "weather-effect";
+
+
+/* Rain Effect */
+
+if (selectedWeather === "rainy") {
+
+    for (let i = 0; i < 40; i++) {
+
+        let drop = document.createElement("div");
+
+        drop.className = "rain-drop";
+
+        drop.style.left = Math.random() * 100 + "%";
+
+        drop.style.animationDelay =
+            Math.random() * 1 + "s";
+
+        effect.appendChild(drop);
+
+    }
+
+}
+
+
+/* Star Effect */
+
+else if (selectedWeather === "starry") {
+
+    for (let i = 0; i < 20; i++) {
+
+        let star = document.createElement("div");
+
+        star.className = "star";
+
+        star.innerHTML = "✨";
+
+        star.style.left =
+            Math.random() * 100 + "%";
+
+        star.style.top =
+            Math.random() * 80 + "%";
+
+        star.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        effect.appendChild(star);
+
+    }
+
+}
+
+
+/* Add effect to preview */
+
+document.getElementById("calmPreview").appendChild(effect);
+
+        /* -----------------------------
+           SOUND MIXER
+        ----------------------------- */
+
+        function updateVolume(type) {
+
+            let slider;
+
+            let value;
+
+
+            if (type === "music") {
+
+                slider =
+                    document.getElementById("musicSlider");
+
+                value =
+                    document.getElementById("musicValue");
+
+            }
+
+
+            else if (type === "rain") {
+
+                slider =
+                    document.getElementById("rainSlider");
+
+                value =
+                    document.getElementById("rainValue");
+
+            }
+
+
+            else {
+
+                slider =
+                    document.getElementById("natureSlider");
+
+                value =
+                    document.getElementById("natureValue");
+
+            }
+
+
+            value.innerHTML =
+                slider.value + "%";
+
+        }
+
+
+
+        /* Play Calm Mix */
+
+        function playMix() {
+
+            alert(
+
+                "🎧 Your Calm Mix is ready!\n\n" +
+
+                "Music: " +
+                document.getElementById("musicSlider").value +
+                "%\n" +
+
+                "Rain: " +
+                document.getElementById("rainSlider").value +
+                "%\n" +
+
+                "Nature: " +
+                document.getElementById("natureSlider").value +
+                "%"
+
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
